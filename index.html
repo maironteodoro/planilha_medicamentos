@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Importar Medicamentos</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h2>Importar planilha de medicamentos</h2>
+
+<input type="file" id="fileInput" accept=".xlsx,.xls">
+<button id="processBtn">Processar</button>
+
+<h3>Cidades encontradas:</h3>
+<div id="cidadesList"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/exceljs/dist/exceljs.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
