@@ -3,27 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <title>Importar Medicamentos</title>
-<link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <h2>Importar planilha de medicamentos</h2>
 
-<!-- Upload do Excel normal -->
 <label>Planilha Normal:</label>
 <input type="file" id="fileInput" accept=".xlsx,.xls">
-<br>
-<!-- Upload do Excel gelado -->
-<label>Planilha Gelados:</label>
-<input type="file" id="fileGeladoInput" accept=".xlsx,.xls">
+<br><br>
 
-<br><button id="processBtn">Processar</button>
+<button id="processBtn">Processar</button>
+
+<hr>
+
+<h3>Medicamentos Gelados</h3>
+
+<!-- Campo + botão -->
+<input type="text" id="novoGelado" placeholder="Digite o medicamento">
+<button onclick="adicionarGelado()">Adicionar</button>
+
+<br><br>
+
+<!-- Quadrado com scroll -->
+<div id="listaGelados"
+     style="border:1px solid #000; width: 1500px; height:180px; overflow-y:auto; padding:5px;">
+</div>
+
+<hr>
 
 <h3>Cidades encontradas:</h3>
 <div id="cidadesList"></div>
 
-<!-- ExcelJS -->
 <script src="https://cdn.jsdelivr.net/npm/exceljs/dist/exceljs.min.js"></script>
-<!-- Script principal -->
 <script src="script.js"></script>
 </body>
 </html>
