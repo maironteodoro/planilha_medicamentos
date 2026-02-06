@@ -160,15 +160,21 @@ async function exportCidade(cidade) {
   let totalInflix = 0;
   const mapa = {};
 
-  dados.forEach(d => {
-    const prim = d.med.split(" ")[0].toUpperCase();
-    if (prim === "INSULINA") totalAgulhas += 30;
-    else if (prim === "INFLIXIMABE") totalInflix += 1;
-    else {
-      const key = `${d.med}||${d.lote}`;
-      mapa[key] = (mapa[key] || 0) + d.qtd;
-    }
-  });
+dados.forEach(d => {
+  const prim = d.med.split(" ")[0].toUpperCase();
+  const key = `${d.med}||${d.lote}`;
+
+  // Sempre soma o medicamento no resumo
+  mapa[key] = (mapa[key] || 0) + d.qtd;
+
+  // Regras especiais
+  if (prim === "INSULINA") {
+    totalAgulhas += 30;
+  } 
+  else if (prim === "INFLIXIMABE") {
+    totalInflix += 1;
+  }
+});
 
   if (totalAgulhas) wsRes.addRow(["AGULHA", "-", totalAgulhas]);
   if (totalInflix) wsRes.addRow(["KIT INFLIXIMABE", "-", totalInflix]);
